@@ -1,0 +1,1 @@
+CMakeLists.txt not found in C:\Users\Luccas\Desktop\stuff\faculdade\2 ano\1 semestre\POO\REDO\Pratica\Day2 Select CMakeLists.txt

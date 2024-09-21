@@ -1,0 +1,3 @@
+C:/Users/Luccas/Desktop/stuff/faculdade/2 ano/1 semestre/POO/REDO/Pratica/Day2/sheet2ex3/cmake-build-debug/CMakeFiles/sheet2ex3.dir
+C:/Users/Luccas/Desktop/stuff/faculdade/2 ano/1 semestre/POO/REDO/Pratica/Day2/sheet2ex3/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Luccas/Desktop/stuff/faculdade/2 ano/1 semestre/POO/REDO/Pratica/Day2/sheet2ex3/cmake-build-debug/CMakeFiles/rebuild_cache.dir

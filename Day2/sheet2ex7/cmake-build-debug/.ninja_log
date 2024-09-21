@@ -1,0 +1,14 @@
+# ninja log v6
+20	1322	7486521461548213	CMakeFiles/sheet2ex7.dir/main.cpp.obj	9cd16a76537652bd
+18	1055	7486521976114297	CMakeFiles/sheet2ex7.dir/matrixManipulator.cpp.obj	6aace1c04eb2aedf
+1057	1553	7486521986500334	sheet2ex7.exe	9e8380d6945b78e6
+14	1101	7486524087730113	CMakeFiles/sheet2ex7.dir/main.cpp.obj	9cd16a76537652bd
+26	1106	7486524087840304	CMakeFiles/sheet2ex7.dir/matrixManipulator.cpp.obj	6aace1c04eb2aedf
+1107	1321	7486524098647915	sheet2ex7.exe	9e8380d6945b78e6
+14	1020	7486524249384071	CMakeFiles/sheet2ex7.dir/main.cpp.obj	9cd16a76537652bd
+1022	1213	7486524259464216	sheet2ex7.exe	9e8380d6945b78e6
+13	1134	7486524611011527	CMakeFiles/sheet2ex7.dir/matrixManipulator.cpp.obj	6aace1c04eb2aedf
+1136	1494	7486524622235369	sheet2ex7.exe	9e8380d6945b78e6
+28	1194	7486526870877944	CMakeFiles/sheet2ex7.dir/matrixManipulator.cpp.obj	6aace1c04eb2aedf
+13	1055	7486526908154179	CMakeFiles/sheet2ex7.dir/main.cpp.obj	9cd16a76537652bd
+1056	1267	7486526918585874	sheet2ex7.exe	9e8380d6945b78e6
