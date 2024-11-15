@@ -31,13 +31,17 @@ public:
 
     void imprimirChar(char c) const;
 
+    //void imprimirString(std::string s) const; why tho
+
+    //void imprimirInt(int i) const;
+
     void transcreverParaConsole() const;
 
     void limpar();
 
     bool carregarMapa(const std::string& nomeFicheiro);
 
-    void moverAlgo(int newX, int newY) const;
+    void moverAlgo(int x, int y, int newX, int newY);
 };
 
 

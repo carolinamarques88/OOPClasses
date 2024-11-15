@@ -7,11 +7,11 @@
 Buffer::Buffer()  : buffer(nullptr), linhas(0), colunas(0), cursorX(0), cursorY(0) {}
 
 Buffer::~Buffer()  {
-    if (buffer) delete[] buffer;
+    delete[] buffer;
 }
 
 void Buffer::alocarBuffer() {
-    if (buffer) delete[] buffer;  // Libera o buffer se já existir
+    delete[] buffer;  // Libera o buffer se já existir
     buffer = new char[linhas * colunas]; // Aloca espaço para o buffer unidimensional
     limparBuffer(); // Preenche o buffer com espaços
 }
@@ -22,20 +22,20 @@ void Buffer::limparBuffer() const {
     }
 }
 
-void Buffer::moverCursor(int x, int y) {
+void Buffer::moverCursor(const int x, const int y) {
     if (x >= 0 && x < linhas && y >= 0 && y < colunas) {
         cursorX = x;
         cursorY = y;
     }
 }
 
-void Buffer::imprimirChar(char c) const {
+void Buffer::imprimirChar(const char c) const {
     if (cursorX >= 0 && cursorX < linhas && cursorY >= 0 && cursorY < colunas) {
         buffer[getIndex(cursorX, cursorY)] = c;
     }
 }
 
-int Buffer::getIndex(int x, int y) const {
+int Buffer::getIndex(const int x, const int y) const {
     return x * colunas + y; // Converte coordenadas 2D para índice 1D
 }
 
@@ -81,9 +81,11 @@ bool Buffer::carregarMapa(const std::string &nomeFicheiro) {
     return true;
 }
 
-void Buffer::moverAlgo(int newX, int newY) const {
+void Buffer::moverAlgo(const int x, const int y, const int newX, const int newY) {
+    moverCursor(x, y);
+
     if (cursorX >= 0 && cursorX < linhas && cursorY >= 0 && cursorY < colunas) {
-        auto aux = buffer[getIndex(cursorX, cursorY)];
+        const auto aux = buffer[getIndex(cursorX, cursorY)];
         buffer[getIndex(cursorX, cursorY)] = '.';
 
         if(newX >= 0 && newX < linhas && newY >= 0 && newY < colunas) {

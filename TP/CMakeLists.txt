@@ -18,4 +18,5 @@ add_executable(TP main.cpp
         headers/Tempestade.h
         configs.cpp
         headers/configs.h
-        headers/structs.h)
+        headers/structs.h
+)
