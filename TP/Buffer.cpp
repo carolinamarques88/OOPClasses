@@ -13,7 +13,7 @@ Buffer::~Buffer()  {
 void Buffer::alocarBuffer() {
     delete[] buffer;  // Libera o buffer se já existir
     buffer = new char[linhas * colunas]; // Aloca espaço para o buffer unidimensional
-    limparBuffer(); // Preenche o buffer com espaços
+    limparBuffer(); // Preenche o buffer com espaços()
 }
 
 void Buffer::limparBuffer() const {

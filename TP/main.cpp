@@ -25,48 +25,67 @@
 
 bool running = true;
 
-Buffer buffer;
+ Buffer buffer;
 
 int processaComandos(const std::string& comando) {
-        std::string cmd, p1, p2, p3, p4;
-        std::istringstream is (comando);
-
-        is >> cmd;
-        is >> p1;
-        is >> p2;
-        is >> p3;
-        is >> p4;
+        std::istringstream is(comando);
+        std::string cmd;
+        is >> cmd; // Primeiro comando
 
         std::vector<std::string> parametros;
         std::string temp;
-        int numParam = 0;
-        while (is >> temp) { // Extrai cada número da string
+        while (is >> temp) { // Captura todos os parâmetros
                 parametros.push_back(temp);
-                numParam++;
         }
 
-        if(cmd == "/sair") {
+        if (cmd == "/sair") {
                 return -1;
         }
-        if(cmd == "/move") {
-                if(numParam != 5) {
+
+        if (cmd == "/move") {
+                if (parametros.size() != 4)
                         return 0;
-                }
-                buffer.moverAlgo(std::stoi(parametros[1]),
-                        std::stoi(parametros[1]) , std::stoi(parametros[2]) ,
-                        std::stoi(parametros[3]));
-                std::cin.ignore(100, '\n');
-                std::getchar();
+
+
+                const int x = std::stoi(parametros[0]);
+                const int y = std::stoi(parametros[1]);
+                const int novoX = std::stoi(parametros[2]);
+                const int novoY = std::stoi(parametros[3]);
+
+
+                buffer.moverAlgo(x, y, novoX, novoY);
+                buffer.transcreverParaConsole();
+                return 1;
         }
-        if(cmd == "/exec") {
-                if(numParam != 2) {
+
+        if (cmd == "/exec") {
+                if (parametros.size() != 1)
                         return 0;
-                }
-                if(!buffer.carregarMapa(parametros[1])) {
+
+                if (!buffer.carregarMapa(parametros[0])) {
                         return -2;
                 }
-                std::cout << buffer.carregarMapa(p1) << std::endl;
+
+                std::cout << "Mapa carregado com sucesso: \n";
+                buffer.transcreverParaConsole();
+                return 1;
         }
+
+        if (cmd == "/print") {
+                if(parametros.size() != 3)
+                        return 0;
+
+                const int p1 = std::stoi(parametros[0]);
+                const int p2 = std::stoi(parametros[1]);
+                const char c = parametros[2][0];
+
+                buffer.moverCursor(p1, p2);
+                buffer.imprimirChar(c);
+                buffer.transcreverParaConsole();
+                return 1;
+        }
+
+        return 0;
 }
 
 int main() {
@@ -80,16 +99,16 @@ int main() {
                 "Mover algo no mapa - Sintaxe: /move <x>, <y>, <novo X>, <novoY>\n"
                 "Sair - Sintaxe: /sair\n";
 
-                std::cin >> comando;
+                std::getline(std::cin, comando);
 
                 int aux = processaComandos(comando);
-                if(aux != 0) {
-                        if(aux == -1)
-                                running = false;
-                        if(aux == -2)
-                                std::cout << "Caminho do ficheiro inválido";
-                }
-                std::cout << "Sintaxe ou comando invalido, tente novamente.";
+
+                if(aux == -1)
+                        running = false;
+                if(aux == -2)
+                        std::cout << "Caminho do ficheiro inválido";
+                if(aux == 0)
+                        std::cout << "Sintaxe ou comando invalido, tente novamente.";
 
         }
 }
