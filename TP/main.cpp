@@ -1,27 +1,6 @@
 #include <iostream>
 #include <sstream>
 #include "headers/Buffer.h"
-/*
-        *Buffer buffer;
-
-        buffer.carregarMapa("../teste.txt");
-        std::cout << "Mapa carregado: " << '\n';
-        buffer.transcreverParaConsole();
-
-        std::cout << "Insira coordenadas em x e y para o cursor\n";
-
-        buffer.moverCursor(2,1);
-
-        buffer.imprimirChar('2');
-
-        std::cout << "Mapa atualizado: \n";
-        buffer.transcreverParaConsole();
-
-        buffer.moverAlgo(2,5);
-
-        std::cout << "Mapa atualizado apos mover: \n";
-        buffer.transcreverParaConsole();
-        */
 
 bool running = true;
 
@@ -72,11 +51,12 @@ int processaComandos(const std::string& comando) {
         }
 
         if (cmd == "/print") {
-                if(parametros.size() != 3)
+                if(parametros.size() != 3 || parametros[2].size() != 1)
                         return 0;
 
                 const int p1 = std::stoi(parametros[0]);
                 const int p2 = std::stoi(parametros[1]);
+
                 const char c = parametros[2][0];
 
                 buffer.moverCursor(p1, p2);
@@ -101,7 +81,7 @@ int main() {
 
                 std::getline(std::cin, comando);
 
-                int aux = processaComandos(comando);
+                const int aux = processaComandos(comando);
 
                 if(aux == -1)
                         running = false;
