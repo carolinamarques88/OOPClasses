@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include "headers/Buffer.h"
+#include "headers/Caravana.h"
 
 bool running = true;
 

@@ -35,7 +35,7 @@ public:
     [[nodiscard]] int getAgua() const;
     [[nodiscard]] int getTripulacao() const;
 
-    virtual void mover(int novaX, int novaY);
+    virtual void mover(int novaX, int novaY) = 0;
     virtual void comportamentoAutonomo() = 0;
     virtual void consumirAgua() = 0;
 
@@ -48,34 +48,43 @@ public:
 };
 
 
-class CComercial : public Caravana {
+class CComercial final : public Caravana {
 public:
     CComercial(int _posX, int _posY)
         : Caravana(_posX, _posY, 40, 200, 20) {}
 
     void mover(int novaX, int novaY) override;
     void comportamentoAutonomo() override;
+    void consumirAgua() override;
 };
 
-class CMilitar : public Caravana {
+class CMilitar final : public Caravana {
+public:
     CMilitar(int _posX, int _posY)
         : Caravana(_posX, _posY, 5, 400, 40) {}
 
     void mover(int novaX, int novaY) override;
     void comportamentoAutonomo() override;
+    void consumirAgua() override;
 };
 
-class CSecreta : public Caravana {
+class CSecreta final : public Caravana {
 public:
     CSecreta(int _posX, int _posY)
         : Caravana(_posX, _posY, 20, 100, 10) {}
 
     void mover(int novaX, int novaY) override;
     void comportamentoAutonomo() override;
-
-
+    void consumirAgua() override;
 };
 
+class CBarbara : public Caravana {
+public:
+    CBarbara(int _posX, int _posY)
+        : Caravana(_posX, _posY, 0, 0, 40) {}
+
+    void comportamentoAutonomo() override;
+};
 
 #endif // CARAVANA_H
 

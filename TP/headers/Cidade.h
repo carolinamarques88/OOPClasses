@@ -7,7 +7,7 @@
 
 #include <string>
 #include <vector>
-#include "Caravana.h" // Supondo que existe a classe Caravana
+#include "Caravana.h"
 
 
 //TODO: achar um jeito de fazer com que o numero de mercadorias e tripulantes possa ser alterado em runtime
